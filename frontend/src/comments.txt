@@ -1,0 +1,38 @@
+//--------------no use --------------
+  // retrieve(): void {
+  //   this.service.receive()
+  //     .subscribe({
+  //       next: (data) => {
+  //         this.ans = data;
+  //         console.log(data);
+  //       },
+  //       error: (e) => console.error(e)
+  //     });
+  // }
+
+  // retrieve(): void {
+  //   this.service.receive()
+  //     .subscribe(
+  //       (data) => {
+  //         console.log('Response Data:', data);
+  //         this.displayData(data);
+  //       },
+  //       (error) => {
+  //         console.error('Error:',error);
+  //     });
+  // }
+
+  // displayData(data: any) {
+  //   // Assign the received data to a variable in your component to use it in the template
+  //   this.displayedData = data;
+  // }
+
+    // const mailtoUrl = `mailto:?subject=${encodeURIComponent(subject)}`;
+    // window.location.href = mailtoUrl;
+    // const mailtoUrl = `mailto:?subject=${encodeURIComponent(subject)}`;
+    // window.open(mailtoUrl, '_blank');
+    
+    // const mailtoUrl = `mailto:?subject=${encodeURIComponent(subject)}`;
+    // setTimeout(() => {
+    //   window.open(mailtoUrl, '_blank');
+    // }, 100);

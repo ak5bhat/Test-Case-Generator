@@ -1,0 +1,148 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- forms -->
+      <!-- <form (ngSubmit)="onClick()" #f="ngForm">
+      <div class="col-md-10">
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group ">
+              <label class="sr-only" for="tcase">Test case:</label>
+              <select class="form-control" id="tcase" [(ngModel)]="myForm.value.tcase" name="tcase" autofocus required>
+                <option value="unit testing"> Unit test case </option>
+                <option value="Functionality test case"> Functionality test case </option>
+                <option value="Performance test case"> Performance test case </option>
+                <option value="UI test case"> User interface (UI) test case </option>
+                <option value="Security test case"> Security test case </option>
+                <option value="Integration test case"> Integration test case </option>
+                <option value="Database test case"> Database test case </option>
+                <option value="Usability test case"> Usability test case </option>
+                <option value="User acceptance test case"> User acceptance test case </option>
+                <option value="Regression test case"> Regression test case </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group ">
+              <label class="sr-only" for="lang">Language</label>
+              <input type="text" class="form-control" id="lang" placeholder="Language" [(ngModel)]="myForm.value.lang" name="lang" [disabled]="myForm.value.tcase !== 'unit testing'">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group ">
+              <label class="sr-only" for="query">Input</label>
+              <input type="text" class="form-control" id="query" placeholder="Input here" [(ngModel)]="myForm.value.query" name="query" required>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-2 grid-container">
+        <button id="submitbutton" type="submit" (click)="startBufferAnimation()" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+        <div class="buffer-animation" *ngIf="showBufferAnimation">
+          <div class="buffer-spinner"></div>
+        </div>
+        <input type="reset" id="resetbutton" class="btn btn-danger"><br>
+      </div>
+      </form>
+      <div class="col-md-2 grid-container">
+        <button class="btn btn-info " id="emailbutton" (click)="openEmail()" >Email</button>
+        <button class="btn btn-warning " id = "downloadbutton" (click)="downloadTextFile()" [disabled]="displayedData===''">Download</button>
+      </div> -->
+      <form (ngSubmit)="onClick()" #f="ngForm" [formGroup]="myForm">
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="tcase">Test case:</label>
+                <select class="form-control" id="tcase" formControlName="tcase" autofocus required>
+                  <option value="">-- Select your test case --</option>
+                  <option value="unit testing"> Unit test case </option>
+                  <option value="Functionality test case"> Functionality test case </option>
+                  <option value="Performance test case"> Performance test case </option>
+                  <option value="UI test case"> User interface (UI) test case </option>
+                  <option value="Security test case"> Security test case </option>
+                  <option value="Integration test case"> Integration test case </option>
+                  <option value="Database test case"> Database test case </option>
+                  <option value="Usability test case"> Usability test case </option>
+                  <option value="User acceptance test case"> User acceptance test case </option>
+                  <option value="Regression test case"> Regression test case </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="sr-only" for="lang">Language</label>
+                <input type="text" class="form-control" id="lang" placeholder="Language" formControlName="lang" [disabled]="myForm.get('tcase')?.value !== 'unit testing'" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="sr-only" for="query">Input</label>
+                <input type="text" class="form-control" id="query" placeholder="Input here" formControlName="query" required>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 grid-container">
+          <button id="submitbutton" type="submit" (click)="startBufferAnimation()" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+          <div class="buffer-animation" *ngIf="showBufferAnimation">
+            <div class="buffer-spinner"></div>
+          </div>
+          <input type="reset" id="resetbutton" class="btn btn-danger"><br>
+        </div>
+      </form>
+      <div class="col-md-2 grid-container">
+        <button class="btn btn-info" id="emailbutton" (click)="openEmail()" [disabled]="displayedData === ''">Email</button>
+        <button class="btn btn-warning" id="downloadbutton" (click)="downloadTextFile()" [disabled]="displayedData === ''">Download</button>
+      </div>
+      
+    </div>
+    <hr>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="scrollable">
+          <h4>Test Steps</h4>
+          <pre class="custom-pre">
+              {{part1}}
+            </pre>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="scrollable">
+          <h4>Test Data</h4>
+          <pre class="custom-pre">
+              {{part2}}
+            </pre>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="scrollable">
+          <h4>Test Results</h4>
+          <pre class="custom-pre">
+              {{part3}}
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <button (click)="startBufferAnimation()" class="btn btn-primary">Click Me</button>
+<div class="buffer-animation" *ngIf="showBufferAnimation">
+  <div class="buffer-spinner"></div>
+</div> -->

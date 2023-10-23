@@ -1,0 +1,9 @@
+{
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 35000
+    },
+    "[csharp]": {
+        "editor.maxTokenizationLineLength": 35000
+    },
+    "editor.maxTokenizationLineLength": 25000
+}
